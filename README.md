@@ -8,4 +8,4 @@ This repository includes the following files:
 1. Queries trainning dataset : Given by the course stadd - each query has the results of retrieved documents.
 2. Search Front End : includes the functions that will run when a query is submited in real time.
 3. Run-frot-end-colab: a notebook that runs the front end.
-4. 
+4. The instructions of this project
