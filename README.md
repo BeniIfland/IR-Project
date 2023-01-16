@@ -15,3 +15,4 @@ This repository includes the following files:
 8. search_frontend.py - the backend python script for querying our search engine, containing 5 methods of querying: wiki doc body, wiki title, wiki anchor text, pagerank, # of page views and more helper functions which we united to a general search wuery function.
 9. updated_inverted_index.py - an updated class of Inverted Index with some more functionalitis.
 10. 10. run_queries.py - a notebook that contains a code provided by teh course staff that implements Map@40 score and an iterative process to run the queries in the training set, calculate scores and measure times.
+11 IR Final Project Report.pdf - final report about the project.
