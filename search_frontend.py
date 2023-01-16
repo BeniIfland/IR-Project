@@ -59,7 +59,7 @@ def search():
             # for doc_id, score in anchor_res:
             #     q_top_n_docs_dict.get(doc_id, 0) + score * aw
             for doc_id in q_top_n_docs_dict.keys():
-                q_top_n_docs_dict[doc_id] += (norm_pr[doc_id] * prw + norm_pv[doc_id] * pvw)
+                q_top_n_docs_dict[doc_id] += norm_pr.get(doc_id,0) * prw + norm_pv.get(doc_id,0) * pvw
             q_top_n_docs_list = sorted(q_top_n_docs_dict.items(), key=lambda x: x[1])[:5]  # List of all the (doc_id, score), sorted by score
             for doc_id, score in q_top_n_docs_list:
                 res.append((doc_id, id_title[doc_id]))
@@ -190,7 +190,6 @@ def search_anchor():
       return jsonify(res)
     # BEGIN SOLUTION
     tok_query = tokenize(query)
-
     for term in tok_query:  # Iterates over all the words in the query
         if term not in idx_anchor.df:
             continue
@@ -229,7 +228,7 @@ def get_pagerank():
       return jsonify(res)
 
     for id in wiki_ids:
-        res.append(page_rank[id])
+        res.append(page_rank.get(id,0))
     # END SOLUTION
     return jsonify(res)
 
@@ -258,7 +257,7 @@ def get_pageview():
     # BEGIN SOLUTION
 
     for id in wiki_ids:
-        res.append(page_views[id])
+        res.append(page_views.get(id,0))
     # END SOLUTION
     return jsonify(res)
 
@@ -448,6 +447,8 @@ def load_global():
     max_views = max(pv_values)
     norm_pv_values = [(views - min_views) / (max_views - min_views) for views in pv_values]
     norm_pv = dict(zip(page_views.keys(), norm_pv_values))
+
+
 if __name__ == '__main__':
     load_global()
     # run the Flask RESTful API, make the server publicly available (host='0.0.0.0') on port 8080
