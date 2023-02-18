@@ -1,6 +1,7 @@
 # IR-Project
-IR Course projects - Building a Wikipedia Search Engine.
+IR Course project - Building a Wikipedia Search Engine.
 In this project we built a search engine on more than 6M wikipedia docs.
+The final engine ran on a GCP virtual machine.
 Institute: Ben Gurion University of the Negev.
 Professor: Nir Grinberg
 Students: Beni ifland, Itay Saig
